@@ -1,4 +1,4 @@
-serial,gre,sop,research,cgpa,unirank,cod
+Serial No.,GRE Score,SOP,Research,CGPA,University Rating,Chance of Admit
 1,330-340,>=4,1,9.65,4,0.92
 2,320-330,>=4,1,8.87,4,0.76
 3,310-320,3-4,1,8.0,3,0.72
