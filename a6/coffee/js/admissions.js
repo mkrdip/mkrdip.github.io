@@ -153,7 +153,7 @@ function update(rawdata){
 
           var yaxisScale = d3.scaleLinear()
                              .domain([max, 0])
-                             .range([height+10, 0]);
+                             .range([0, height+10]);
           vis.append('g')
              .attr("transform", "translate(503, 0)")
              .call(d3.axisLeft(yaxisScale)
