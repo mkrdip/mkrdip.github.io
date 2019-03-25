@@ -145,9 +145,15 @@ function update(rawdata){
                             });   
                             // Inspiration: https://learnui.design/tools/data-color-picker.html#palette                            
           var xaxisScale = d3.scaleBand().domain(x).range([0, width+3]);
-          vis.append('g').attr("transform", "translate(0, 310)").call(d3.axisBottom(xaxisScale));
+          vis.append('g')
+             .attr("transform", "translate(0, 310)")
+             .call(d3.axisBottom(xaxisScale));
+
           var yaxisScale = d3.scaleLinear().domain([max, 0]).range([0, height+10]);
-          vis.append('g').attr("transform", "translate(503, 0)").call(d3.axisRight(yaxisScale).ticks(5));           
+          vis.append('g')
+             .attr("transform", "translate(503, 0)")
+             .call(d3.axisLeft(yaxisScale)
+             .ticks(5));           
 
 
 }
