@@ -15,7 +15,7 @@ function init(){
 // Parse CSV and store by selected dropdown value
 function updateClicked(){
   if(getXAttribute() == 'GRE Score' && getYAttribute() == 'Chance of Admit')
-        d3.csv('data/GradAdmissionsData.csv', function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then(function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.gre;
          })
@@ -27,7 +27,7 @@ function updateClicked(){
 
       });
   else if(getXAttribute() == 'Research' && getYAttribute() == 'Chance of Admit') 
-       d3.csv('data/GradAdmissionsData.csv', function(data) {
+       d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.research;
          })
@@ -39,7 +39,7 @@ function updateClicked(){
 
       });
   else if(getXAttribute() == 'SOP' && getYAttribute() == 'Chance of Admit')
-        d3.csv('data/GradAdmissionsData.csv', function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.sop;
          })
@@ -51,7 +51,7 @@ function updateClicked(){
 
       });
   else if(getXAttribute() == 'GRE Score' && getYAttribute() == 'Student Count')
-        d3.csv('data/GradAdmissionsData.csv', function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.gre;
          })
@@ -61,7 +61,7 @@ function updateClicked(){
 
       });
   else if(getXAttribute() == 'Research' && getYAttribute() == 'Student Count') 
-       d3.csv('data/GradAdmissionsData.csv', function(data) {
+       d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.research;
          })
@@ -71,7 +71,7 @@ function updateClicked(){
 
       });
   else if(getXAttribute() == 'SOP' && getYAttribute() == 'Student Count')
-        d3.csv('data/GradAdmissionsData.csv', function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { return d.sop;
          })
