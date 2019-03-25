@@ -104,8 +104,8 @@ function update(rawdata){
         chart = d3.select('#vis').append('svg');
         
         vis = chart.attr("width", width + 100)
-             .attr("height", height + 50)
-             .append('g');
+                   .attr("height", height + 50)
+                   .append('g');
         var appending = vis.attr("transform", "translate(50,0)")
                            .selectAll('rect')
                            .data(y)
@@ -143,12 +143,12 @@ function update(rawdata){
                                 }
                                 return color;
                             });   
-                            // https://learnui.design/tools/data-color-picker.html#palette
-          var xaxisScale = d3.scaleBand().domain(x).range([0, width+3]);
-          vis.append('g').attr("transform", "translate(0, 310)").call(d3.axisBottom(xaxisScale)); 
-          var yaxisScale = d3.scaleLinear().domain([max, 0]).range([0, height+10]);
-          vis.append('g').attr("transform", "translate(503, 0)").call(d3.axisRight(yaxisScale).ticks(5));
+                            // Inspiration: https://learnui.design/tools/data-color-picker.html#palette
 
+          var xaxisScale = d3.scaleBand().domain(x).range([0, width+3]);
+          vis.append('g').attr("transform", "translate(0, height+10)").call(d3.axisBottom(xaxisScale)); 
+          var yaxisScale = d3.scaleLinear().domain([max, 0]).range([0, height+10]);
+          vis.append('g').attr("transform", "translate(width+5, 0)").call(d3.axisRight(yaxisScale).ticks(5));
 }
 
 // Returns the selected option in the X-axis dropdown
