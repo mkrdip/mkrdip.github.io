@@ -1,0 +1,52 @@
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>Graduate Admissions Data Visualization</title>
+	<script src="http://d3js.org/d3.v4.min.js"></script>
+	<script src="js/admissions.js"></script>
+	<link href="css/admissions.css" rel="stylesheet" media="screen" type="text/css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="init()"> <!-- init() method defined in admissions.js-->
+<div class="container text-center">
+	
+	<h1>Interactive Barchart in D3</h1>	
+	<hr>
+	<br>
+	
+	<div class="form-inline">
+		
+		<div class="form-group">
+			<label for="attr_X">X: </label>
+			<select id="attr_X" class="form-control">
+			  <option val="GRE Score">GRE Score</option>
+			  <option val="Research">Reseach Experience</option>
+			  <option val="SOP">SOP Strength</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="attr_Y">Y: </label>
+			<select id="attr_Y" class="form-control">
+			  <option val="Chance of Admit">Average Chance of Admit</option>
+			  <option val="Student Count">Number of Students</option>
+			</select>
+		</div>
+
+		<button id="update" onclick="updateClicked()" type="button" class="btn btn-primary">Update Visualization</button>
+	</div>
+	
+	<br>
+	<hr>
+	<br>
+	
+
+	<div id="vis"></div>
+</div>		
+</body>
+</html>
