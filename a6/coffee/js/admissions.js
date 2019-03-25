@@ -155,7 +155,6 @@ function update(rawdata){
                              .domain([max, 0])
                              .range([0, height+10]);
           vis.append('g')
-             .attr("transform", "translate(503, 0)")
              .call(d3.axisLeft(yaxisScale)
              .ticks(5));           
 
