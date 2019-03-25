@@ -18,11 +18,11 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then(function(data) {
         rawdata = d3.nest()
         .key(function(d) { 
-          return d.gre;
+          return d['GRE Score'];
         })
         .rollup(function(d) {
           return d3.mean(d, function(g) {
-            return g.cod;
+            return g['Chance of Admit'];
           });
         })    
         .entries(data);
@@ -32,11 +32,11 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { 
-          return d.research;
+          return d.Research;
         })
         .rollup(function(d) {
           return d3.mean(d, function(g) {
-            return g.cod;
+            return g['Chance of Admit'];
           });
         })    
         .entries(data); 
@@ -46,11 +46,11 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { 
-          return d.sop;
+          return d.SOP;
         })
         .rollup(function(d) {
           return d3.mean(d, function(g) {
-            return g.cod;
+            return g['Chance of Admit'];
           });
         })    
         .entries(data); 
@@ -60,7 +60,7 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { 
-          return d.gre;
+          return d['GRE Score'];
         })
         .rollup(function(values) {
           return values.length; 
@@ -72,7 +72,7 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) { 
-          return d.research;
+          return d.Research;
         })
         .rollup(function(values) { 
           return values.length; 
@@ -84,7 +84,7 @@ function updateClicked(){
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
         .key(function(d) {
-          return d.sop;
+          return d.SOP;
         })
         .rollup(function(values) { 
           return values.length; 
@@ -135,7 +135,7 @@ function update(rawdata){
                                 else if(i == 2) {
                                   color = "#bc5090";
                                 }
-				                        else if(i == 3) {
+                                else if(i == 3) {
                                   color = "#ff6361";
                                 }
                                 else {
@@ -169,6 +169,6 @@ function getXAttribute(){
 
 // Returns the selected option in the X-axis dropdown
 function getYAttribute(){
-	var node = d3.select('#attr_Y').node();
-	return node[node.selectedIndex].getAttribute('val');
+  var node = d3.select('#attr_Y').node();
+  return node[node.selectedIndex].getAttribute('val');
 }
