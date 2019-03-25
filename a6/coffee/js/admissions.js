@@ -1,8 +1,8 @@
 // Varibales
 var chart, vis;
-var height = 300;
 var width = 500;
-var rawdata, y, x;
+var height = 300;
+var rawdata, x, y;
 
 // Gets called when the page is loaded.
 function init(){
@@ -17,68 +17,80 @@ function updateClicked(){
   if(getXAttribute() == 'GRE Score' && getYAttribute() == 'Chance of Admit')
         d3.csv('data/GradAdmissionsData.csv').then(function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.gre;
-         })
+        .key(function(d) { 
+          return d.gre;
+        })
         .rollup(function(d) {
-            return d3.mean(d, function(g){return g.cod;
-            });})    
+          return d3.mean(d, function(g) {
+            return g.cod;
+          });
+        })    
         .entries(data);
         update(rawdata);
-
       });
   else if(getXAttribute() == 'Research' && getYAttribute() == 'Chance of Admit') 
-       d3.csv('data/GradAdmissionsData.csv').then( function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.research;
-         })
+        .key(function(d) { 
+          return d.research;
+        })
         .rollup(function(d) {
-            return d3.mean(d, function(g){return g.cod;
-            });})    
+          return d3.mean(d, function(g) {
+            return g.cod;
+          });
+        })    
         .entries(data); 
         update(rawdata);
-
       });
   else if(getXAttribute() == 'SOP' && getYAttribute() == 'Chance of Admit')
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.sop;
-         })
+        .key(function(d) { 
+          return d.sop;
+        })
         .rollup(function(d) {
-            return d3.mean(d, function(g){return g.cod;
-            });})    
+          return d3.mean(d, function(g) {
+            return g.cod;
+          });
+        })    
         .entries(data); 
         update(rawdata);
-
       });
   else if(getXAttribute() == 'GRE Score' && getYAttribute() == 'Student Count')
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.gre;
-         })
-        .rollup(function(values) { return values.length; })    
+        .key(function(d) { 
+          return d.gre;
+        })
+        .rollup(function(values) {
+          return values.length; 
+        })    
         .entries(data);
         update(rawdata);
-
       });
   else if(getXAttribute() == 'Research' && getYAttribute() == 'Student Count') 
-       d3.csv('data/GradAdmissionsData.csv').then( function(data) {
+        d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.research;
-         })
-        .rollup(function(values) { return values.length; })    
+        .key(function(d) { 
+          return d.research;
+        })
+        .rollup(function(values) { 
+          return values.length; 
+        })    
         .entries(data); 
         update(rawdata);
-
       });
   else if(getXAttribute() == 'SOP' && getYAttribute() == 'Student Count')
         d3.csv('data/GradAdmissionsData.csv').then( function(data) {
         rawdata = d3.nest()
-        .key(function(d) { return d.sop;
-         })
-        .rollup(function(values) { return values.length; })    
+        .key(function(d) {
+          return d.sop;
+        })
+        .rollup(function(values) { 
+          return values.length; 
+        })    
         .entries(data); 
         update(rawdata);
-
       });
 }
 
@@ -95,9 +107,10 @@ function update(rawdata){
              .attr("height", height + 50)
              .append('g');
         var appending = vis.attr("transform", "translate(50,0)")
-                      .selectAll('rect')
-                      .data(y)
-                      .enter().append('rect');
+                           .selectAll('rect')
+                           .data(y)
+                           .enter().append('rect');
+
         // Define height of the bars with respect to the largest value using max and multiplier varibales
         var max = Math.max.apply(null, y);
         var multiplier = max/height; 
